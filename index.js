@@ -12,3 +12,11 @@ app.get("/", (req, res) => {
 app.get("/ip", (req, res) => {
     res.send(req.ip);
 })
+
+app.get("/ongaku", (req, res) => {
+    // おんがくjsonの長さ 1からカウントアップ
+    const ongaku_json_length = Object.keys(ongaku).length;
+    // ランダムな整数を出力してデータを返す
+    const ongaku_random_number = Math.floor(Math.random() * ongaku_json_length) + 1;
+    res.send(ongaku[ongaku_random_number]);
+})
